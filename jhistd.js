@@ -4,13 +4,20 @@ const Router = require('koa-router');
 const send = require('koa-send');
 const timestamp = require('monotonic-timestamp');
 
+const Room = require('./models/room');
+
 const app = new Koa();
 const api1 = new Router({
   prefix: '/api/v1',
 });
 
-api1.get('/swagger.json', async function (ctx) {
+api1.get('/swagger.(json|yaml)', async function (ctx) {
   await send(ctx, ctx.path);
+});
+
+api1.get('/rooms', async function (ctx) {
+  const rooms = await Room.findAll()
+  ctx.body = rooms;
 });
 
 app.use(async function (ctx, next) {

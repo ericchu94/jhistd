@@ -1,0 +1,37 @@
+swagger: '2.0'
+
+info:
+  version: "0.0.1"
+  title: "jhist api"
+
+paths:
+  /rooms:
+    get:
+      description: Gets all rooms.
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Room"
+  /rooms/{id}:
+    get:
+      description: Returns a room
+      parameters:
+        - name: "id"
+          in: "path"
+          type: "string"
+          required: true
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Room"
+      
+definitions:
+  Room:
+    type: "object"
+    properties:
+      id:
+        type: "integer"

@@ -1,0 +1,18 @@
+{
+  "name": "jhistd",
+  "version": "0.0.1",
+  "description": "A jhist server",
+  "main": "jhistd.js",
+  "repository": {
+    "url": "https://github.com/ericchu94/jhistd.git",
+    "type": "git"
+  },
+  "author": "Eric Chu",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "next",
+    "koa-router": "next",
+    "koa-send": "^3.2.0",
+    "monotonic-timestamp": "^0.0.9"
+  }
+}

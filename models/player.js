@@ -2,8 +2,15 @@
 const {Sequelize, sequelize} = require('./sequelize');
 
 const Player = sequelize.define('player', {
-  name: Sequelize.STRING,
-  score: Sequelize.INTEGER,
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  score: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0,
+    allowNull: false,
+  },
 });
 
 Player.sync();

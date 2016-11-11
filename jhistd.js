@@ -24,8 +24,11 @@ api1.get('/players', async function (ctx) {
   ctx.body = players;
 });
 
-api1.post('/players', async function (ctx) {
-  const player = await Player.create();
+api1.post('/players', bodyParser(), async function (ctx) {
+  const {name} = ctx.request.body;
+  const player = await Player.create({
+    name: name,
+  });
   ctx.body = player;
 });
 

@@ -1,11 +1,10 @@
 'use strict';
 const {Sequelize, sequelize} = require('./sequelize');
-const Room = require('./room');
 
 const Player = sequelize.define('player', {
+  name: Sequelize.STRING,
+  score: Sequelize.INTEGER,
 });
-
-Room.hasMany(Player);
 
 Player.sync();
 

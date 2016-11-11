@@ -1,4 +1,6 @@
 'use strict';
+const child_process = require('child_process');
+
 const Koa = require('koa');
 const Router = require('koa-router');
 const send = require('koa-send');
@@ -48,9 +50,10 @@ async function putPlayer(id, name, score) {
   if (affectedCount)
     io.socket.emit('putPlayer', {
       id: id,
-      name: values.name,
-      score: values.score,
+      name: name,
+      score: score,
     });
+    child_process.execFile('meteorite', ['data', '-d', 'player:' + name, 'ericchu.jhist', 'gauge', score]);
   return affectedCount;
 }
 

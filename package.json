@@ -11,6 +11,9 @@
   "license": "MIT",
   "dependencies": {
     "koa": "next",
+    "koa-bodyparser": "3",
+    "koa-convert": "^1.2.0",
+    "koa-cors": "^0.0.16",
     "koa-router": "next",
     "koa-send": "^3.2.0",
     "monotonic-timestamp": "^0.0.9",

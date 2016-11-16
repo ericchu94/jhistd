@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "A jhist server",
   "main": "jhistd.js",
+  "scripts": {
+    "start": "node --harmony ."
+  },
   "repository": {
     "url": "https://github.com/ericchu94/jhistd.git",
     "type": "git"

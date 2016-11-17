@@ -10,6 +10,9 @@
     "url": "https://github.com/ericchu94/jhistd.git",
     "type": "git"
   },
+  "engines": {
+    "node": "7.1.0"
+  },
   "author": "Eric Chu",
   "license": "MIT",
   "dependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "jhistd",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "A jhist server",
   "main": "jhistd.js",
   "scripts": {

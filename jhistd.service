@@ -2,7 +2,7 @@
 Description=A jhist server daemon
 
 [Service]
-ExecStart=npm start
+ExecStart=/usr/bin/npm start
 WorkingDirectory=/opt/jhistd
 User=jhistd
 

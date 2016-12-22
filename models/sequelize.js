@@ -1,9 +1,11 @@
 'use strict';
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('jhistd', null, null, {
-  dialect: 'sqlite',
-  storage: 'db.sqlite3',
+const sequelize = new Sequelize('jhistd', 'jhistd', 'jhistd', {
+  dialect: 'mysql',
+  dialectOptions: {
+    socketPath: '/var/run/mysqld/mysqld.sock',
+  },
 });
 
 exports.Sequelize = Sequelize;

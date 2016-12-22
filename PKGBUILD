@@ -1,6 +1,6 @@
 # Maintainer: Eric Chu <eric@ericchu.net>
 pkgname=jhistd-git
-pkgver=v1.0.0.r0.e3af63f
+pkgver=v1.0.1.r0.0e4cd47
 pkgrel=1
 pkgdesc='a jhist server daemon'
 arch=('any')

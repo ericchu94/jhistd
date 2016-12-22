@@ -1,0 +1,10 @@
+[Unit]
+Description=A jhist server daemon
+
+[Service]
+ExecStart=npm start
+WorkingDirectory=/opt/jhistd
+User=jhistd
+
+[Install]
+WantedBy=network.target

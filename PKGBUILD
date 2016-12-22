@@ -1,0 +1,30 @@
+# Maintainer: Eric Chu <eric@ericchu.net>
+pkgname=jhistd-git
+pkgver=v3.1.0.r0.e1e5f3b
+pkgrel=1
+pkgdesc='a jhist server daemon'
+arch=('any')
+url='https://github.com/ericchu94/jhistd'
+license=('GPL')
+depends=('nodejs'
+         'npm')
+provides=("${pkgname%-git}")
+conflicts=("${pkgname%-git}")
+source=('git://github.com/ericchu94/jhistd.git')
+md5sums=('SKIP')
+install="${pkgname%-git}.install"
+
+pkgver() {
+  cd "$srcdir/${pkgname%-git}"
+  printf "%s" "$(git describe --long --tags | sed 's/\([^-]*-\)g/r\1/;s/-/./g')"
+}
+
+package() {
+  cd "$srcdir/${pkgname%-git}"
+
+  mkdir -p "$pkgdir/opt/${pkgname%-git}"
+  cp -r *.js *.json yarn.lock models api "$pkgdir/opt/${pkgname%-git}"
+
+  mkdir -p "$pkgdir/usr/lib/systemd/system"
+  cp jhistd.service "$pkgdir/usr/lib/systemd/system"
+}

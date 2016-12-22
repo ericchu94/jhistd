@@ -1,0 +1,17 @@
+# arg 1:  the new package version
+post_install() {
+    post_upgrade
+    useradd jhistd
+}
+
+# arg 1:  the new package version
+# arg 2:  the old package version
+post_upgrade() {
+    cd /opt/jhistd && yarn || npm install
+}
+
+# arg 1:  the old package version
+pre_remove() {
+    rm -rf /opt/jhistd/node_modules
+    userdel jhistd
+}

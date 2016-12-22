@@ -67,6 +67,15 @@ async function deletePlayer(id) {
   return true;
 }
 
+async function addPlayerScore(id, delta) {
+  const player = await Player.findById(id)
+  await player.increment('score', {
+    by: delta,
+  });
+  await player.reload();
+  io.socket.emit('putPlayer', player);
+}
+
 io.on('getPlayers', async (ctx, data) => {
   ctx.socket.emit('getPlayers', await getPlayers());
 });
@@ -89,6 +98,11 @@ io.on('putPlayer', async (ctx, data) => {
 io.on('deletePlayer', async (ctx, data) => {
   const {id} = data;
   await deletePlayer(id);
+});
+
+io.on('addPlayerScore', async (ctx, data) => {
+  const {id, delta} = data;
+  await addPlayerScore(id, delta);
 });
 
 api1.get('/players', async ctx => {

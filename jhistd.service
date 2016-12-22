@@ -4,6 +4,7 @@ Description=A jhist server daemon
 [Service]
 ExecStart=/usr/bin/node --harmony .
 WorkingDirectory=/opt/jhistd
+EnvironmentFile=/etc/jhistd/jhistd.conf
 User=jhistd
 
 [Install]

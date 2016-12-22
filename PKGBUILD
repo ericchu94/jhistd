@@ -25,6 +25,9 @@ package() {
   mkdir -p "$pkgdir/opt/${pkgname%-git}"
   cp -r *.js *.json yarn.lock models api "$pkgdir/opt/${pkgname%-git}"
 
+  mkdir -p "$pkgdir/etc/${pkgname%-git}"
+  cp jhistd.env "$pkgdir/etc/${pkgname%-git}"
+
   mkdir -p "$pkgdir/usr/lib/systemd/system"
   cp jhistd.service "$pkgdir/usr/lib/systemd/system"
 }
